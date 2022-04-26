@@ -22,6 +22,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 #### For add data to the table you can use admin panel
+##### Use english for names of table's objects: default_object_name
 ***
 ## API
 
@@ -37,7 +38,7 @@ GET 127.0.0.1:8000
 Contributors names and contact info
 
 ex. gdetam  
-ex. [@gdetam](https://t.me/onlygdetam)
+ex. [@gdetam](http://t.me/onlygdetam)
 
 ### License
 
