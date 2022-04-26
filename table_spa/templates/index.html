@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/main.js"></script>
+
+</head>
+<body>
+<main>
+    <div id="modal_open" class="my_modal">
+        <div class="my_modal-dialog">
+            <div class="my_modal-content">
+                <div class="my_modal-header">
+                    <p class="my_modal-title">Заголовок модального окна</p>
+                    <a onclick="close_window()" title="Закрыть модальное окно" class="close">×</a>
+                </div>
+                <div class="my_modal-body">
+                    <p>Здесь прописана текстовая информация модального окна ...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label>Фильтрация
+        <select id="filter_name" onchange="filter();">
+            <option value="Название">Название</option>
+            <option value="Количество">Количество</option>
+            <option value="Расстояние">Расстояние</option>
+        </select>
+        <select id="filter_condition" onchange="filter();">
+            <option value="=">=</option>
+            <option value="in">in</option>
+            <option value=">">></option>
+            <option value="<"><</option>
+        </select>
+        <input id="filter_input" oninput="filter();" maxlength="100">
+    </label>
+    <div>
+    </div>
+    <div>
+        <table class="table table-striped table-hover">
+            <label>Показывать по
+                <select id="filter_limit" onchange="changeFunc();">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </label>
+
+                <thead class="thead-light mx-4">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Дата</th>
+                    <th onclick="orderBy(this)" scope="col">Название<i class="fa-solid fa-arrows-up-down"></i></th>
+                    <th onclick="orderBy(this)" scope="col">Количество<i class="fa-solid fa-arrows-up-down"></i></th>
+                    <th onclick="orderBy(this)" scope="col">Расстояние<i class="fa-solid fa-arrows-up-down mr-5"></i></th>
+                </tr>
+                </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+        <template id="table">
+        <tr>
+            <th scope="row"></th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
+    </div>
+
+    <div class="pages">
+
+    </div>
+
+    <template id="pages">
+        <button class="page" onclick="changeOffset(-1)">
+            Prev
+        </button>
+        <button class="page" onclick="makeOffset(this.textContent)">
+        </button>
+        <button class="page" onclick="changeOffset(1)">
+            Next
+        </button>
+    </template>
+</main>
+</body>
+</html>
